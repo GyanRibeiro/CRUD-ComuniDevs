@@ -2,7 +2,7 @@
 
 ## Sistema de Cadastro de Desenvolvedores
 
-O ComuniDevs é um projeto que implementa um sistema de cadastro de desenvolvedores, utilizando as tecnologias Java, PostgreSQL e JDBC. O objetivo do projeto é permitir que usuários cadastrem informações de desenvolvedores, como nome, CPF, idade e área de atuação, e realizem operações básicas de manipulação de banco de dados relacionais (CRUD), como inserção, consulta, atualização e exclusão de dados.
+> O ComuniDevs é um projeto que implementa um sistema de cadastro de desenvolvedores, utilizando as tecnologias Java, PostgreSQL e JDBC. O objetivo do projeto é permitir que usuários cadastrem informações de desenvolvedores, como nome, CPF, idade e área de atuação, e realizem operações básicas de manipulação de banco de dados relacionais (CRUD), como inserção, consulta, atualização e exclusão de dados.
 
 ## 🧑🏻‍💻 Tecnologias utilizadas
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -34,12 +34,30 @@ Após configurar o projeto, você pode executar o programa e escolher uma das op
 3. Atualizar Dados: Permite atualizar o nome ou a área de atuação de um desenvolvedor específico, informando o CPF.
 4. Excluir Dados: Permite excluir um desenvolvedor específico ou todos os desenvolvedores cadastrados.
 
-## Autores
-- Gyan Ribeiro
+## 🤝 Colaboradores
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/GyanRibeiro">
+        <img src="https://conteudo.imguol.com.br/c/parceiros/48/2021/11/24/seu-madruga-em-cena-do-chaves-1637785049183_v2_450x450.jpg" width="100px;" alt="Foto do Robin dos jovens Titans"/><br>
+        <sub>
+          <b>Eu Mesmo</b>
+        </sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/MateusCard">
+        <img src="https://avatars.githubusercontent.com/u/88321806?v=4" width="100px;" alt="Foto do Robin dos jovens Titans"/><br>
+        <sub>
+          <b>Mateus Cardoso</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 Entre em contato através do LinkedIn:
 https://www.linkedin.com/in/gyanribeiro/
 
 Sinta-se à vontade para contribuir com o projeto, fazer sugestões ou relatar problemas.
-
-Pra mais informações, acesse a documentação do projeto.
