@@ -300,6 +300,46 @@ public class ComuniDevs {
         }
     }
     
+    public static void excluirD() {
+        Scanner ler = new Scanner(System.in);
+
+        System.out.println("\n==============================================");
+        System.out.println("Selecione a opcao desejada:");
+        System.out.println("------------------------------------------------");
+        System.out.println("(1) para excluir um dado expecífico");
+        System.out.println("(2) para excluir todos os dados");
+
+        int opcaoExcluir = ler.nextInt();
+        String SQLexcluirDados = "";
+    
+        if (opcaoExcluir == 1) {
+            System.out.println("Digite o CPF para excluir os dados:");
+
+            int cpf = ler.nextInt();
+            System.out.println("\n==============================================");
+
+            ler.nextLine();
+
+            SQLexcluirDados = "DELETE FROM desenvolvedores WHERE cpf = " + cpf;
+        } 
+        else if (opcaoExcluir == 2) {
+            SQLexcluirDados = "DELETE from desenvolvedores";
+        }
+   
+        String driver = "jdbc:postgresql://127.0.0.1:5432/DadosDesenvolvedores";
+        Statement st = null;
+        try (Connection conn = DriverManager.getConnection(driver, "postgres", "2912")) {
+            System.out.println("Excluindo dados da tabela...");
+            st = conn.createStatement();
+            st.executeUpdate(SQLexcluirDados);
+            System.out.println("Dados Excluídos!");
+            st.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%S", e.getSQLState(), e.getMessage());
+        }
+    }
+    
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
@@ -327,6 +367,13 @@ public class ComuniDevs {
         else if (opcao == 3) {
             ComuniDevs.atualizandoBD();
         }
+        else if (opcao == 4) {
+            ComuniDevs.excluirD();
+        } else {
+            System.out.println("Opcao Invalida!!");
+            return;
+        }
+        System.out.println("\n==============================================");
     }
     
 }
