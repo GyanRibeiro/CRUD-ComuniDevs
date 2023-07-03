@@ -12,6 +12,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 
 import java.util.Scanner;
 
@@ -153,6 +154,99 @@ public class ComuniDevs {
         }
     }
     
+    public static void consultDados() {
+    Scanner ler = new Scanner(System.in);
+    
+    System.out.println("\n==============================================");
+    System.out.println("Digite (1) para consultar um dado especifico");
+    System.out.println("Digite (2) para consultar todos os dados");
+    
+    int opcao = ler.nextInt();
+    String SQLconsultarDados = "";
+    
+    if (opcao == 1) { /* Diferencial pedido*/
+        System.out.println("------------------------------------------------");
+        System.out.println("Digite o tipo de consulta: ");
+        System.out.println("------------------------------------------------");
+        
+        System.out.println("(1) Consulta por CPF");
+        System.out.println("(2) Consulta por area");
+        
+        int opcaoConsult = ler.nextInt();
+        
+        if (opcaoConsult == 1) {
+            System.out.println("Digite o CPF para buscar os dados:");
+            int cpf = ler.nextInt();
+            SQLconsultarDados = "SELECT * FROM desenvolvedores WHERE cpf = " + cpf;
+        }
+        else if (opcaoConsult == 2) {
+            System.out.println("Selecione a area que deseja consultar: ");
+            System.out.println("1. Front-end");
+            System.out.println("2. Back-end");
+            System.out.println("3. Full stack");
+            System.out.println("4. Mobile");
+            System.out.println("5. Estudante");
+            
+            int opcaoAreaConsult = ler.nextInt();
+            
+            String areaAtuacao = "";
+            
+            if (opcaoAreaConsult == 1) {
+                areaAtuacao = "Front-end";
+            }
+            else if (opcaoAreaConsult == 2) {
+                areaAtuacao = "Back-end";
+            }
+            else if (opcaoAreaConsult == 3) {
+                areaAtuacao = "Full stack";
+            }
+            else if (opcaoAreaConsult == 4) {
+                areaAtuacao = "Mobile";
+            }
+            else if (opcaoAreaConsult == 5) {
+                areaAtuacao = "Estudante";
+            } else {
+                System.out.println("Opcao inválida!!");
+                return;
+            }
+            SQLconsultarDados = "SELECT * FROM desenvolvedores WHERE area = '" + areaAtuacao + "'";
+        } else {
+            System.out.println("Opcao Invalida");
+            return;
+        }
+        
+        
+    } else if (opcao == 2) {
+        SQLconsultarDados = "SELECT * FROM desenvolvedores";
+    } else {
+        System.out.println("Opcao invalida");
+        return;
+    }
+    
+    String driver = "jdbc:postgresql://127.0.0.1:5432/DadosDesenvolvedores";
+    
+    try (Connection conn = DriverManager.getConnection(driver, "postgres", "2912")) {
+        
+        System.out.println("Consultando dados na tabela...");
+        Statement st = conn.createStatement();
+        ResultSet result = st.executeQuery(SQLconsultarDados);
+        
+        while (result.next()) {
+            System.out.println("\n==============================================");
+            System.out.println("Nome: " + result.getString("nome"));
+            System.out.println("CPF: " + result.getInt("cpf"));
+            System.out.println("Idade: " + result.getString("idade"));
+            System.out.println("Area de Atuacao: " + result.getString("area"));
+        }
+        
+        result.close();
+        st.close();
+        conn.close();
+    } catch (SQLException e) {
+        System.err.format("SQL State: %s\n%S", e.getSQLState(), e.getMessage());
+    }
+}
+    
     public static void main(String[] args) {
         
         Scanner scanner = new Scanner(System.in);
@@ -162,11 +256,20 @@ public class ComuniDevs {
         ComuniDevs.createBD();
         ComuniDevs.createTable();
         
-        System.out.println("testeInserindoDados");
+        System.out.println("\n==============================================");
+        System.out.println("Escolha uma opçao:\n");
+        System.out.println("1. Inserir Dados");
+        System.out.println("2. Consultar dados");
+        System.out.println("3. Atualizar Dados");
+        System.out.println("4. Excluir dados");
+        
         int opcao = scanner.nextInt();
           
         if (opcao == 1) {
             ComuniDevs.inserindo();
+        }
+        else if (opcao == 2) {
+            ComuniDevs.consultDados();
         }
     }
     
