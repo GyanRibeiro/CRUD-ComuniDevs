@@ -4,19 +4,18 @@
 
 O ComuniDevs é um projeto que implementa um sistema de cadastro de desenvolvedores, utilizando as tecnologias Java, PostgreSQL e JDBC. O objetivo do projeto é permitir que usuários cadastrem informações de desenvolvedores, como nome, CPF, idade e área de atuação, e realizem operações básicas de manipulação de banco de dados relacionais (CRUD), como inserção, consulta, atualização e exclusão de dados.
 
-## Tecnologias utilizadas
+## 🧑🏻‍💻 Tecnologias utilizadas
+![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
-- Java
-- PostgreSQL
-- API JDBC
-
-## Pré-requisitos
+## 💻 Pré-requisitos
 
 - Java JDK instalado
 - PostgreSQL instalado e configurado
 - Driver JDBC do PostgreSQL (disponível em: https://jdbc.postgresql.org/)
 
-## Baize o projeto
+## 📥 Baixe o projeto
 Para utilizar o ComuniDevs, siga as instruções abaixo:
 
 - Clone o repositório do projeto para o seu ambiente de desenvolvimento.
@@ -24,7 +23,7 @@ Para utilizar o ComuniDevs, siga as instruções abaixo:
 - Baixe o Driver JDBC do PostgreSQL e adicione ao projeto.
 - Configure as informações de conexão ao banco de dados no código, como URL, usuário e senha.
 
-## Como utilizar
+## ❓ Como utilizar
 Após configurar o projeto, você pode executar o programa e escolher uma das opções disponíveis:
 
 1. Inserir Dados: Permite inserir os dados de um novo desenvolvedor no banco de dados.
