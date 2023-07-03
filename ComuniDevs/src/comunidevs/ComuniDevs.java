@@ -13,6 +13,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import java.util.Scanner;
+
 public class ComuniDevs {
     
     /* Método que conecta os drivers */
@@ -66,13 +68,106 @@ public class ComuniDevs {
         }
     }
     
+    /*Método que insere os dados na tabela*/
+    public static void inserindo() {
+        Scanner ler = new Scanner(System.in);
+        
+        System.out.println("\n==============================================");
+        System.out.println("Digite seu nome:");
+        String nome = ler.nextLine();
+        
+        System.out.println("------------------------------------------------");
+        System.out.println("Digite seu CPF:");
+        int cpf = ler.nextInt();
+        ler.nextLine();
+        
+        System.out.println("------------------------------------------------");
+        int idade;
+                
+        do {
+            System.out.println("Digite sua idade:");
+            idade = ler.nextInt();
+            ler.nextLine();
+            
+            if (idade < 18) {
+                System.out.println("A idade deve ser maior que 18. Digite novamente.");
+                System.out.println("Deseja digitar sua idade novamente? 1 - Sim, 2 - Não");
+                int opcaoIdade = ler.nextInt();
+                ler.nextLine();
+        
+                if (opcaoIdade == 2) {
+                    return; // Encerra o programa
+                }
+            }
+            
+        } while(idade < 18);
+        
+        System.out.println("------------------------------------------------");
+        System.out.println("Selecione sua area de atuacao:\n");
+        System.out.println("1. Front-end");
+        System.out.println("2. Back-end");
+        System.out.println("3. Full stack");
+        System.out.println("4. Mobile");
+        System.out.println("5. Estudante");
+        
+        int opcaoArea = ler.nextInt();
+        String area = "";
+        
+        if (opcaoArea == 1) {
+            area = "Front-end";
+        }
+        else if (opcaoArea == 2) {
+            area = "Back-end";
+        }
+        else if (opcaoArea == 3) {
+            area = "Full stack";
+        }
+        else if (opcaoArea == 4) {
+            area = "Mobile";
+        }
+        else if (opcaoArea == 5) {
+            area = "Estudante";
+        } else {
+            System.out.println("Opção inválida.");
+            return;
+        }
+        
+        
+        System.out.println("\n==============================================");
+        
+        String SQLinserirDados = "INSERT INTO desenvolvedores (cpf, nome, idade, area) VALUES (" + cpf + ", '" + nome + "', '" + idade + "', '" + area + "')";
+
+        
+        String driver = "jdbc:postgresql://127.0.0.1:5432/DadosDesenvolvedores";
+        Statement st = null;
+         try (Connection conn = DriverManager.getConnection(
+                driver, "postgres", "2912")) {
+            System.out.println("Inserindo dados na tabela...");
+            st = conn.createStatement();
+            st.executeUpdate(SQLinserirDados);
+            System.out.println("Dados inseridos");
+            st.close();
+            conn.close();
+        } catch (SQLException e) {
+            System.err.format("SQL State: %s\n%S", e.getSQLState(), e.getMessage());
+        }
+    }
+    
     public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
         
         System.out.println("\n==============================================");
         ComuniDevs.conectDriver();
         ComuniDevs.createBD();
         ComuniDevs.createTable();
         
+        System.out.println("testeInserindoDados");
+        int opcao = scanner.nextInt();
+          
+        if (opcao == 1) {
+            ComuniDevs.inserindo();
+        }
     }
     
 }
