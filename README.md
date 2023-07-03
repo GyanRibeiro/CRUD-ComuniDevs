@@ -9,6 +9,9 @@ O ComuniDevs é um projeto que implementa um sistema de cadastro de desenvolvedo
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
+## 📄 Documentação
+➡️ [Confira a documntação](https://github.com/GyanRibeiro/CRUD-ComuniDevs/blob/main/Documenta%C3%A7%C3%A3o/Documento%20ComuniDevs.pdf)
+
 ## 💻 Pré-requisitos
 
 - Java JDK instalado
