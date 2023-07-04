@@ -1,4 +1,4 @@
-# Projeto ComuniDev
+# ☕ Projeto ComuniDev
 
 ## Sistema de Cadastro de Desenvolvedores
 
