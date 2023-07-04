@@ -10,7 +10,7 @@
 ![Git](https://img.shields.io/badge/GIT-E44C30?style=for-the-badge&logo=git&logoColor=white)
 
 ## 📄 Documentação
-➡️ [Confira a documntação](https://github.com/GyanRibeiro/CRUD-ComuniDevs/blob/main/Documenta%C3%A7%C3%A3o/Documento%20ComuniDevs.pdf)
+➡️ [Confira a documentação](https://github.com/GyanRibeiro/CRUD-ComuniDevs/blob/main/Documenta%C3%A7%C3%A3o/Documento%20ComuniDevs.pdf)
 
 ## 💻 Pré-requisitos
 
